@@ -22,5 +22,6 @@ export const reqToken = () => {
         const array = element.split('=');
         tokenObject.push(array);
     })
-    return tokenObject
+    if(tokenObject.length<=1) return null;
+    return tokenObject;
 }

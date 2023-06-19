@@ -32,19 +32,17 @@ function App() {
     const token = reqToken();
     setToken(token);
     console.log(token);
-    // dispatch(tokenSliceActions.setToken(token));
-    // setTimeout(() => {
-    //   console.log(token);
-    //   window.location.hash = "";
-    // },0)
-    // getUserData(token);
+    if(token != null){
+      dispatch(tokenSliceActions.setToken(token));
+      getUserData(token);
+    }
 
   },[])
 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Home />
+      element: _token ? <Home /> : <Login />
     },
     {
       path: '/login',

@@ -15,5 +15,12 @@ const scopes = [
 export const authRedirectLink = `${entryPoint}?client_id=${CLIENT_ID}&redirect_uri=${redirect_uri}&scope=${scopes.join("%20")}&response_type=token`
 
 export const reqToken = () => {
-    return window.location.hash;
+    const hash =  window.location.hash;
+    const accessTokenArray = hash.slice(1).split('&');
+    let tokenObject = [];
+    accessTokenArray.map((element) => {
+        const array = element.split('=');
+        tokenObject.push(array);
+    })
+    return tokenObject
 }

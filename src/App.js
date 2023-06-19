@@ -15,7 +15,13 @@ function App() {
   useEffect(() => {
     const token = reqToken();
     setToken(token);
-  })
+    // setTimeout(() => {
+    //   console.log(token);
+    //   window.location.hash = "";
+    // },0)
+    console.log(token);
+
+  },[])
 
   const router = createBrowserRouter([
     {

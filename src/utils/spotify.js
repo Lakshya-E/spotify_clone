@@ -8,7 +8,11 @@ const scopes = [
     'user-read-email',
     'user-read-private',
     'app-remote-control',
-    'user-read-currently-playing',  
+    'user-read-currently-playing', 
+    'playlist-read-private',
+    'user-follow-read',
+    'user-library-read',
+    'user-top-read' 
 ]
 
 

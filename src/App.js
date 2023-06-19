@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     const token = reqToken();
     setToken(token);
-    console.log(token);
+    // console.log(token);
     if(token != null){
       dispatch(tokenSliceActions.setToken(token));
       getUserData(token);

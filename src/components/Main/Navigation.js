@@ -9,7 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 const Navigation = () => {
 
   const user = useSelector(state => state.user.user);
-  console.log("user", user)
+  // console.log("user", user)
 
   const userAvatar = user?.images[0]?.url;
   const userName = user?.display_name;

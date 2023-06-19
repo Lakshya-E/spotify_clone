@@ -2,7 +2,7 @@ import React from 'react'
 import Aside from '../components/Aside/Aside'
 // import Footer from './Footer'
 import AsideBottom from '../components/Aside/AsideBottom'
-// import Body from './Body'
+import Body from '../components/Main/Body'
 
 const Home = () => {
     return (
@@ -14,7 +14,7 @@ const Home = () => {
                     <h1>Hello world</h1>
                 </div>
                 <div className='h-[calc(100vh-100px)] bg-[#121212] w-full mr-2 mt-2 rounded-md'>
-                    {/* <Body /> */}
+                    <Body />
                 </div>
             </div>
             {/* <Footer /> */}

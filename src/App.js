@@ -7,11 +7,12 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import { reqToken } from './utils/spotify';
 import { userSliceActions } from './store/user-slice';
+import { tokenSliceActions } from './store/token-slice';
 
 
 function App() {
 
-  const [ _token, setToken ] = useState(null);
+  const [ _token, setToken ] = useState();
 
   const dispatch = useDispatch();
 
@@ -23,25 +24,31 @@ function App() {
       }
     })
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     dispatch(userSliceActions.setUser(data));
   }
 
   useEffect(() => {
     const token = reqToken();
     setToken(token);
+    console.log(token);
+    // dispatch(tokenSliceActions.setToken(token));
     // setTimeout(() => {
     //   console.log(token);
     //   window.location.hash = "";
     // },0)
-    getUserData(token);
+    // getUserData(token);
 
   },[])
 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: _token ? <Home /> : <Login />
+      element: <Home />
+    },
+    {
+      path: '/login',
+      element: <Login />
     }
   ])
 

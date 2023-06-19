@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter} from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Children, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './App.css';
@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import { reqToken } from './utils/spotify';
 import { userSliceActions } from './store/user-slice';
 import { tokenSliceActions } from './store/token-slice';
+import Profile from './pages/Profile';
+import Root from './pages/Root';
 
 
 function App() {
@@ -42,7 +44,11 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: _token ? <Home /> : <Login />
+      element: _token ? <Root /> : <Login />,
+      children: [
+        {path: '/', element: <Home />},
+        {path: '/profile', element: <Profile />}
+      ]
     },
     {
       path: '/login',

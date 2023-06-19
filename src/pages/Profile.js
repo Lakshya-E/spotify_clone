@@ -5,6 +5,7 @@ import Navigation from '../components/Main/Navigation';
 import Hero from '../components/Main/Hero';
 
 import { getTopArtist } from '../utils/userDataFetch';
+import Card from '../components/UI/Card';
 
 const Profile = () => {
 
@@ -17,14 +18,14 @@ const Profile = () => {
 
     useEffect(() => {
       getTopArtist(token).then(items => {
-        console.log(items)
+        // console.log(items)
+        setTopArtist(items)
       })
-      // console.log('data', data);
     }, [])
 
-    // console.log(topArtist);
+    // console.log('top', topArtist);
 
-    const propsData = {
+    const profileData = {
         title: 'Profile',
         user: userData.display_name,
         image: userData.images[0].url,
@@ -35,7 +36,14 @@ const Profile = () => {
   return (
     <div>
       <Navigation />
-      <Hero data={propsData} />
+      <Hero data={{...profileData}} />
+      <div className='flex'>
+      {topArtist?.slice(0,5).map(artist => {
+        return (
+          <Card data={artist} isProfile={true} desc={"Artist"} />
+        )
+      })}
+      </div>
     </div>
   )
 }

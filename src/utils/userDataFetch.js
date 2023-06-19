@@ -17,6 +17,4 @@ export const getTopArtist = async(token) => {
     if(responseData.items)
         return responseData.items;
 
-
-
 }

@@ -32,7 +32,7 @@ const PlaylistTracks = () => {
     }
 
     // debugger
-    console.log(playlistDetails?.tracks.items);
+    // console.log(playlistDetails?.tracks.items);
     // console.log("data");
     // console.log(playlistDetails?.tracks.items[1].track.album.images[0].url);
 
@@ -40,6 +40,7 @@ const PlaylistTracks = () => {
     <div>
       <Navigation />
       <Hero data={data} />
+      <Track heading={true} />
       {playlistDetails?.tracks?.items?.map((track, index) => {
         return (
             <Track

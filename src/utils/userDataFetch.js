@@ -55,3 +55,21 @@ export const getArtistsName = (track) => {
 
     return artistArray.join(',');
 }
+
+export const getFollowings = async(token) => {
+
+    const response = await fetch(`${meUrl}following?type=artist`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${token[0][1]}`
+        }
+    })
+
+    const responseData = await response.json();
+    
+    // console.log('from fetch', responseData);
+    return responseData;
+    // if(responseData.items)
+    //     return responseData.items;
+
+}

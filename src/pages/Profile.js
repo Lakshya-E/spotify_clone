@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import Navigation from '../components/Main/Navigation';
 import Hero from '../components/Main/Hero';
 
-import { getTopArtist, getTopTracks, getUserPlaylist, getArtistsName } from '../utils/userDataFetch';
+import { getTopArtist, getTopTracks, getUserPlaylist, getArtistsName, getFollowings } from '../utils/userDataFetch';
 import Card from '../components/UI/Card';
 import CardWrapper from '../components/UI/CardWrapper';
 import Track from '../components/UI/Track';
@@ -17,6 +17,7 @@ const Profile = () => {
   const [topArtist, setTopArtist] = useState();
   const [playlists, setPlaylists] = useState();
   const [topTracks, setTopTracks] = useState();
+  const [followings, setFollowings] = useState();
 
   useEffect(() => {
     getTopArtist(token).then(items => {
@@ -28,17 +29,21 @@ const Profile = () => {
     getTopTracks(token).then(items => {
       setTopTracks(items);
     }) 
+    getFollowings(token).then(item => setFollowings(item.artists));
   }, [userData, token])
 
-  // console.log(topTracks);
+  // console.log('from comp', followings);
 
   const profileData = {
     title: 'Profile',
     user: userData?.display_name,
     image: userData?.images[0].url,
     followers: userData?.followers.total,
+    following: followings?.total,
+    playlists: playlists?.length,
     isProfile: true
   }
+
 
   return (
     <div>

@@ -15,9 +15,9 @@ const Hero = (props) => {
         <h2 className='text-6xl tracking-widest font-extrabold mb-2'>{props.data.user}</h2>
         {/* Playlist, userfollowers, details */}
         <div className='flex'>
-            <p className='mr-4 text-sm'>email</p>
+            <p className='mr-4 text-sm'>{props.data.playlists} playlists</p>
             <p className='mr-4 text-sm'><span className='mr-1'>{props.data.followers}</span>followers</p>
-            <p className='mr-4 text-sm'>following</p>
+            <p className='mr-4 text-sm'>{props.data.following} following</p>
         </div>
       </div>
     </div>

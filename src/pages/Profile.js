@@ -32,6 +32,7 @@ const Profile = () => {
     getFollowings(token).then(item => setFollowings(item.artists));
   }, [userData, token])
 
+  //DEBUGGER
   // console.log('from comp', followings);
 
   const profileData = {
@@ -83,6 +84,18 @@ const Profile = () => {
               name={playlist.name.slice(0,16)}
               isProfile={false} 
               desc={`by ${userData.display_name}`} 
+            />
+          )
+        })}
+      </CardWrapper>
+      <CardWrapper title='Followings' >
+        {followings.items?.slice(0,6).map(follow => {
+          return (
+            <Card 
+              isProfile={true}
+              image={follow.images[0]?.url}
+              name={follow.name}
+              desc={follow.type}
             />
           )
         })}

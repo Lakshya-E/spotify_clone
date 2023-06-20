@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { playlistActions } from '../../store/playlist-slice'
 import { getUserPlaylist } from '../../utils/userDataFetch'
 
@@ -22,7 +23,7 @@ const AsideBottom = () => {
         playlists => setPlaylists(playlists)
       )
     }
-    
+
   }, [user, token])
 
   // console.log(playlists);
@@ -38,22 +39,24 @@ const AsideBottom = () => {
       {
         playlists?.map(playlist => {
           return (
-            <div key={playlist.id} className='px-2 py-2 rounded-md cursor-pointer flex  hover:bg-gray-800' >
-              <div className='mr-4'>
-                <img 
-                  className='text-xs h-[55px] w-[55px] rounded-lg' 
-                  src={playlist.images[0]?.url} 
-                  alt='img' 
-                />
-              </div>
-              <div className='pt-[6px]'>
-                <p className='text-base'>{playlist.name.slice(0,31)}</p>
-                <div className='flex '>
-                  <p className='mr-4 text-gray-400 text-sm'>{playlist.type}</p>
-                  <p className='mr-4 text-gray-400 text-sm'>{user.display_name}</p>
+            <Link to={`/${playlist.id}`}>
+              <div key={playlist.id} className='px-2 py-2 rounded-md cursor-pointer flex  hover:bg-gray-800' >
+                <div className='mr-4'>
+                  <img
+                    className='text-xs h-[55px] w-[55px] rounded-lg'
+                    src={playlist.images[0]?.url}
+                    alt='img'
+                  />
+                </div>
+                <div className='pt-[6px]'>
+                  <p className='text-base'>{playlist.name.slice(0, 31)}</p>
+                  <div className='flex '>
+                    <p className='mr-4 text-gray-400 text-sm'>{playlist.type}</p>
+                    <p className='mr-4 text-gray-400 text-sm'>{user.display_name}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           )
         })
       }

@@ -73,3 +73,18 @@ export const getFollowings = async(token) => {
     //     return responseData.items;
 
 }
+
+export const getPlayListDetails = async(playlist_id, token) => {
+
+    const response = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}`, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token[0][1]}`
+        }
+    })
+
+    const responseData = response.json();
+    // console.log('from fetch' ,responseData);
+    return responseData;
+
+}

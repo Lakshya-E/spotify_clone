@@ -10,6 +10,7 @@ import { userSliceActions } from './store/user-slice';
 import { tokenSliceActions } from './store/token-slice';
 import Profile from './pages/Profile';
 import Root from './pages/Root';
+import PlaylistTracks from './pages/PlaylistTracks';
 
 
 function App() {
@@ -47,7 +48,8 @@ function App() {
       element: _token ? <Root /> : <Login />,
       children: [
         {path: '/', element: <Home />},
-        {path: '/profile', element: <Profile />}
+        {path: '/profile', element: <Profile />},
+        {path: '/:id', element: <PlaylistTracks />}
       ]
     },
     {

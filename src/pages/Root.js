@@ -12,7 +12,7 @@ const Root = () => {
                     <AsideBottom /> 
                     <h1>Hello world</h1>
                 </div>
-                <div className='h-[calc(100vh-100px)] bg-[#121212] w-full mr-2 mt-2 rounded-md'>
+                <div className='h-[calc(100vh-100px)] bg-[#121212] w-full mr-2 mt-2 rounded-md overflow-scroll scroll'>
                     <Outlet />
                 </div>
             </div>

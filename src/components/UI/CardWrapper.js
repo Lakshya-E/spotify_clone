@@ -7,7 +7,7 @@ const CardWrapper = (props) => {
         <h3 className='text-xl font-bold tracking-wide'>{props.title}</h3>
         <p className='text-sm text-gray-400 mb-1'>{props.titleDesc}</p>
       </div>
-      <div className='flex'>
+      <div className={`${props.notFlex ? '' : 'flex'}`}>
         {props.children}
       </div>
     </div>

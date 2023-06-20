@@ -22,11 +22,10 @@ const AsideBottom = () => {
         playlists => setPlaylists(playlists)
       )
     }
-    if(playlists != null)
-      dispatch(setPlaylists(playlists))
+    
   }, [user, token])
 
-  console.log(playlists);
+  // console.log(playlists);
 
   return (
     <div className='scroll overflow-scroll h-[calc(100vh-212px)] bg-[#121212] p-4 m-2 rounded-md text-lg'>

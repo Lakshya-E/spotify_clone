@@ -4,7 +4,7 @@ const Track = (props) => {
   return (
     <div className='flex items-center justify-between mx-2 hover:bg-gray-800 p-2 rounded-md ease-in-out duration-200 cursor-pointer'>
       <div className='max-w-[500px] flex-grow flex items-center'>
-        <p className='mr-2'>1</p>
+        <p className='mr-2'>{props.sno}</p>
         <img 
             className='h-[40px] w-[40px]'
             src={props.image} 

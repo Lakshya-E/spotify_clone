@@ -63,10 +63,11 @@ const Profile = () => {
         })}
       </CardWrapper>
       <CardWrapper notFlex={true} title={'Top Artists this month'} titleDesc={'only visible to you'} >
-        {topTracks?.slice(0,4).map(track => {
+        {topTracks?.slice(0,4).map((track, index) => {
           return (
             <Track 
               key={track.id}
+              sno={index+1}
               name={track.name.slice(0,35)}
               image={track.album.images[0]?.url}
               album={track.album.name}

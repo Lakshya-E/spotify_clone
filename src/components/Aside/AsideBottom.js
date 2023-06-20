@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { playlistActions } from '../../store/playlist-slice'
 import { getUserPlaylist } from '../../utils/userDataFetch'
 
 import { BiLibrary } from 'react-icons/bi'
@@ -10,15 +11,19 @@ const AsideBottom = () => {
   const token = useSelector(state => state.token.token);
   const userId = user?.id;
   // console.log(user)
+  const dispatch = useDispatch();
 
   const [playlists, setPlaylists] = useState();
 
+  // the global state for playlist is set here
   useEffect(() => {
     if (userId) {
       getUserPlaylist(userId, token).then(
         playlists => setPlaylists(playlists)
       )
     }
+    if(playlists != null)
+      dispatch(setPlaylists(playlists))
   }, [user, token])
 
   console.log(playlists);

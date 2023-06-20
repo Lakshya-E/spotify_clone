@@ -3,11 +3,11 @@ import React from 'react'
 const Card = (props) => {
     console.log(props)
   return (
-    <div className='bg-[#1d1d1d] rounded-md m-3'>
+    <div className='bg-[#1d1d1d] rounded-md m-3 hover:bg-[#252525] ease-in-out duration-150'>
         {/* artist image */}
         <div className='p-2'>
             <img 
-                className={`${props.isProfile ? 'rounded-full': ''}`}
+                className={`${props.isProfile ? 'rounded-full drop-shadow-2xl': ''}`}
                 src={props.data.images[0].url} 
             />
         </div>

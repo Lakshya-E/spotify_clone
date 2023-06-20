@@ -49,8 +49,8 @@ const PlaylistTracks = () => {
                 name={track.track?.name}
                 artist={getArtistsName(track.track)}
                 album={track.track?.album?.name}
-                date={track.added_at}
-                time={new Date(track.track?.duration_ms).toDateString().slice(15,19)}
+                date={track.added_at.slice(0,10)}
+                time={new Date(track.track?.duration_ms).toISOString().slice(15,19)}
             />
         )
       })}

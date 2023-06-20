@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = (props) => {
   return (
-    <div className={`m-4 p-4 flex ${props.data.isProfile ? 'items-center': 'items-end'}`}>
+    <div className={`m-4 p-4 flex ${props.data.isProfile ? 'items-center': 'items-end'} pb-10 border-b-2 border-gray-600`}>
       <div className='mr-4'>
         <img
             className={`h-[250px] w-[250px] ${props.data.isProfile ? 'rounded-full': ''}`}

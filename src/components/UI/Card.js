@@ -3,7 +3,7 @@ import React from 'react'
 const Card = (props) => {
     console.log(props)
   return (
-    <div className='bg-[#1d1d1d] rounded-md m-2'>
+    <div className='bg-[#1d1d1d] rounded-md m-3'>
         {/* artist image */}
         <div className='p-2'>
             <img 
@@ -12,9 +12,9 @@ const Card = (props) => {
             />
         </div>
         {/* artist details */}
-        <div className='p-2'>
+        <div className='p-2 pb-4'>
             <p>{props.data.name}</p>
-            <p>{props.desc}</p>
+            <p className='text-sm text-gray-400'>{props.desc}</p>
         </div>
 
     </div>

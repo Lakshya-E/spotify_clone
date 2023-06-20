@@ -12,7 +12,8 @@ const scopes = [
     'playlist-read-private',
     'user-follow-read',
     'user-library-read',
-    'user-top-read' 
+    'user-top-read',
+    'playlist-read-collaborative' 
 ]
 
 

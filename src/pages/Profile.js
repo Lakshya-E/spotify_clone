@@ -89,7 +89,7 @@ const Profile = () => {
         })}
       </CardWrapper>
       <CardWrapper title='Followings' >
-        {followings.items?.slice(0,6).map(follow => {
+        {followings?.items?.slice(0,6).map(follow => {
           return (
             <Card 
               isProfile={true}

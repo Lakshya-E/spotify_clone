@@ -10,8 +10,12 @@ const Body = () => {
   const token = useSelector(state => state.token.token);
 
   useEffect(() => {
-    getRecentlyPlayed(token);
+    getRecentlyPlayed(token).then(items => {
+      setRecentlyPlayed(items);
+    });
   },[])
+
+  console.log(recentlyPlayed?.items)
 
   return (
     <div className='rounded-md'>

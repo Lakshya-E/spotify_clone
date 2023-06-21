@@ -100,6 +100,6 @@ export const getRecentlyPlayed = async(token) => {
     })
 
     const responseData = response.json();
-    console.log('from-fetch', responseData)
+    // console.log('from-fetch', responseData)
     return responseData;
 }

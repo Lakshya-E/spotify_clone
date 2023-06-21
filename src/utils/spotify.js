@@ -13,7 +13,8 @@ const scopes = [
     'user-follow-read',
     'user-library-read',
     'user-top-read',
-    'playlist-read-collaborative' 
+    'playlist-read-collaborative' ,
+    'user-read-recently-played',
 ]
 
 

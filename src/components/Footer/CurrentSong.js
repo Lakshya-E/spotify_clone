@@ -29,31 +29,33 @@ const CurrentSong = () => {
     }, [])
 
     // DEBUGGER
-    console.log('from current song', getArtistsName(currentSong?.item));
+    // console.log('from current song', currentSong);
 
-  return (
-    <div className='flex items-center'>
+    return (
+        <div className='flex items-center'>
 
-        {/* imaage */}
-      <div className='h-[55px] w-[55px]'>
-        <img 
-            className='h-full w-full'
-            src={currentSong?.item?.album?.images[0]?.url} 
-        />
-      </div>
+            {/* imaage */}
+            <div className='h-[55px] w-[55px]'>
+                <img
+                    className='h-full w-full'
+                    src={currentSong?.item?.album?.images[0]?.url}
+                />
+            </div>
 
-      {/* song details */}
-      <div className='mx-2'>
+            {/* song details */}
+            <div className='mx-2'>
 
-            {/* Song name */}
-            <p className='text-sm'>{currentSong?.item?.name}</p>
-            {/* artists */}
-            <p className='text-xs text-gray-400'>{getArtistsName(currentSong?.item)}</p>
+                {/* Song name */}
+                <p className='text-sm'>{currentSong?.item?.name}</p>
+                {/* artists */}
+                {currentSong?.item?.artists && <p className='text-xs text-gray-400'>{getArtistsName(currentSong?.item)}</p>}
 
-      </div>
+            </div>  
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default CurrentSong
+
+

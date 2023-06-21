@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -10,16 +10,27 @@ const Navigation = () => {
 
   const user = useSelector(state => state.user.user);
   // console.log("user", user)
+  const navigate = useNavigate();
+  const params = useParams();
 
   const userAvatar = user?.images[0]?.url;
   const userName = user?.display_name;
   // console.log(userAvatar);
+  // console.log(params)
+
+  const goToPrevPage = () => {
+    if(Object.keys(params).length === 0) return;
+    navigate(-1)
+  }
+  const goToNextPage = () => {
+    navigate(1)
+  }
 
   return (
     <div className='flex justify-between p-4'>
       <div>
-        <ArrowBackIosIcon className='mx-4' />
-        <ArrowForwardIosIcon />
+        <ArrowBackIosIcon className='mx-4' onClick={goToPrevPage} />
+        <ArrowForwardIosIcon onClick={goToNextPage} />
       </div>
       <Link to={'/profile'}>
         <div className='flex mr-4 cursor-pointer'>

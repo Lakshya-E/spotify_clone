@@ -62,7 +62,7 @@ const Profile = () => {
           )
         })}
       </CardWrapper>
-      <CardWrapper notFlex={true} title={'Top Artists this month'} titleDesc={'only visible to you'} >
+      <CardWrapper notFlex={true} title={'Top Tracks this month'} titleDesc={'only visible to you'} >
         {topTracks?.slice(0,4).map((track, index) => {
           return (
             <Track 

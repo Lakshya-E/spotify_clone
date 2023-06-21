@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Navigation from './Navigation'
 import HomeHero from './HomeHero'
-import { getRecentlyPlayed } from '../../utils/userDataFetch'
+import { getArtistsName, getRecentlyPlayed } from '../../utils/userDataFetch'
+import CardWrapper from '../UI/CardWrapper'
+import Card from '../UI/Card'
 
 const Body = () => {
 
@@ -13,23 +15,36 @@ const Body = () => {
     getRecentlyPlayed(token).then(items => {
       setRecentlyPlayed(items);
     });
-  },[])
+  }, [])
 
   console.log(recentlyPlayed?.items)
 
   return (
     <div className='rounded-md'>
-      
-        {/* Navigation */}
-        <Navigation />
-        
-        {/* <Home Hero Section/> */}
-        <HomeHero />
 
-        {/* Recently Played */}
+      {/* Navigation */}
+      <Navigation />
 
-        {/* Fav Artists */}
-      
+      {/* <Home Hero Section/> */}
+      <HomeHero />
+
+      {/* Recently Played */}
+      <CardWrapper title={'Recently played'}>
+        {recentlyPlayed?.items.slice(0, 6).map(track => {
+          return (
+            <Card 
+              key={track.track?.id}
+              isProfile={false}
+              image={track.track?.album?.images[0]?.url}
+              name={track.track?.name.slice(0,15)}
+              desc={getArtistsName(track.track).slice(0,15)}
+            />
+          )
+        })}
+      </CardWrapper>
+
+      {/* Fav Artists */}
+
     </div>
   )
 }

@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import { reqToken } from './utils/spotify';
 import { userSliceActions } from './store/user-slice';
 import { tokenSliceActions } from './store/token-slice';
+import trackSlice, { trackSliceActions } from './store/track-slice';
 import Profile from './pages/Profile';
 import Root from './pages/Root';
 import PlaylistTracks from './pages/PlaylistTracks';
@@ -33,22 +34,14 @@ function App() {
   }
 
   useEffect(() => {
+//  /////token request//////////
     const token = reqToken();
     setToken(token);
-    // console.log(token);
+
+//  ///// this is where token context is set  
     if(token != null){
       dispatch(tokenSliceActions.setToken(token));
       getUserData(token);
-      try{
-        getCurrentlyPlayingSong(token).then(items => {
-          console.log(items)
-          
-        })
-      }
-      catch(e)
-      {
-        console.log(e);
-      }
     }
 
     

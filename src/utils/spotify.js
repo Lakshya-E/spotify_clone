@@ -15,6 +15,7 @@ const scopes = [
     'user-top-read',
     'playlist-read-collaborative' ,
     'user-read-recently-played',
+    'user-modify-playback-state'
 ]
 
 

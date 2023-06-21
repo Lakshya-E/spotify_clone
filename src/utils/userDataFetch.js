@@ -116,13 +116,13 @@ export const getCurrentlyPlayingSong = async(token) => {
 
     // console.log(response);
 
-    try {
-        const responseData = await response.json();
+    try{
+        const responseData = response.json();
         return responseData;
     }
-    catch(e)
+    catch(error)
     {
-        throw new Error(e);
+        throw error;
     }
 
 }

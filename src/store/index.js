@@ -9,6 +9,6 @@ export const store = configureStore({
         user: userSlice,
         token: tokenSlice,
         playlist: playlistSlice,
-        currentTrack: trackSlice
+        currentSong: trackSlice
     }
 })

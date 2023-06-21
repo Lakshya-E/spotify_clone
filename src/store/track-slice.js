@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    currentlyPlaying: null
+    currentSong: null
 }
 
 const trackSlice = createSlice({
-    name: 'track',
+    name: 'currentSong',
     initialState,
     reducers: {
-        setCurrentlyPlaying(state, action) {
-            state.currentlyPlaying = action.payload;
+        setCurrentSong(state, action) {
+            state.currentSong = action.payload
         }
     }
 })

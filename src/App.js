@@ -11,6 +11,7 @@ import { tokenSliceActions } from './store/token-slice';
 import Profile from './pages/Profile';
 import Root from './pages/Root';
 import PlaylistTracks from './pages/PlaylistTracks';
+import { getCurrentlyPlayingSong } from './utils/userDataFetch';
 
 
 function App() {
@@ -38,8 +39,19 @@ function App() {
     if(token != null){
       dispatch(tokenSliceActions.setToken(token));
       getUserData(token);
+      try{
+        getCurrentlyPlayingSong(token).then(items => {
+          console.log(items)
+          
+        })
+      }
+      catch(e)
+      {
+        console.log(e);
+      }
     }
 
+    
   },[])
 
   const router = createBrowserRouter([

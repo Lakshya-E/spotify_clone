@@ -34,10 +34,10 @@ const Body = () => {
 
       {/* Recently Played */}
       <CardWrapper title={'Recently played'}>
-        {recentlyPlayed?.items.slice(0, 6).map(track => {
+        {recentlyPlayed?.items.slice(0, 6).map((track,index) => {
           return (
             <Card 
-              key={track.track?.id}
+              key={index+1}
               isProfile={false}
               image={track.track?.album?.images[0]?.url}
               name={track.track?.name.slice(0,15)}
@@ -49,9 +49,10 @@ const Body = () => {
 
       {/* Fav Artists */}
       <CardWrapper title={'Your favorite artists'} >
-        {favArtist?.slice(0, 6).map(artist => {
+        {favArtist?.slice(0, 6).map((artist,index) => {
           return (
             <Card 
+              key={index}
               image={artist.images[0].url} 
               name={artist.name}
               isProfile={true} 

@@ -99,7 +99,30 @@ export const getRecentlyPlayed = async(token) => {
         }
     })
 
-    const responseData = response.json();
+    const responseData = await response.json();
     // console.log('from-fetch', responseData)
     return responseData;
+}
+
+//currently playing songs
+export const getCurrentlyPlayingSong = async(token) => {
+
+    const response = await fetch(`https://api.spotify.com/v1/me/player/currently-playing`, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token[0][1]}`,
+        }
+    })
+
+    // console.log(response);
+
+    try {
+        const responseData = await response.json();
+        return responseData;
+    }
+    catch(e)
+    {
+        throw new Error(e);
+    }
+
 }

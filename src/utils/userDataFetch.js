@@ -88,3 +88,18 @@ export const getPlayListDetails = async(playlist_id, token) => {
     return responseData;
 
 }
+
+// Recently played
+export const getRecentlyPlayed = async(token) => {
+
+    const response = await fetch(`${meUrl}player/recently-played`, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token[0][1]}`
+        }
+    })
+
+    const responseData = response.json();
+    console.log('from-fetch', responseData)
+    return responseData;
+}

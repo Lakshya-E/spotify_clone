@@ -20,16 +20,37 @@ const CurrentSong = () => {
     //     dispatch
     // }
 
+    //////////////////////////////////////////////////
+
+    /////////////////////////////////////////////////
     const [currentSong, setCurrentSong] = useState();
 
+    // useEffect(() => {
+    //         console.log(getCurrentlyPlayingSong(token))
+    // }, [])
+
     useEffect(() => {
-        getCurrentlyPlayingSong(token).then(items => {
-            setCurrentSong(items);
+
+        fetch(`https://api.spotify.com/v1/me/player/currently-playing`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token[0][1]}`,
+            }
+        }).then(response => {
+            const responseData = response.body.getReader();
+            return responseData.read();
+        }).then(resResult => {
+            if(!resResult.done) {
+                const data = JSON.parse(new TextDecoder().decode(resResult.value));
+                console.log('last try', data);
+                setCurrentSong(data)
+            }
         })
+
     }, [])
 
     // DEBUGGER
-    // console.log('from current song', currentSong);           
+    console.log('from current song', currentSong);           
 
     return (
         <div className='flex items-center'>
@@ -50,7 +71,7 @@ const CurrentSong = () => {
                 {/* artists */}
                 {currentSong?.item?.artists && <p className='text-xs text-gray-400'>{getArtistsName(currentSong?.item)}</p>}
 
-            </div>  
+            </div>
 
         </div>
     )

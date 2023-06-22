@@ -37,10 +37,10 @@ const AsideBottom = () => {
       </div>
       {/* Playlist here */}
       {
-        playlists?.map(playlist => {
+        playlists?.map((playlist, index) => {
           return (
-            <Link to={`/${playlist.id}`}>
-              <div key={playlist.id} className='px-2 py-2 rounded-md cursor-pointer flex  hover:bg-gray-800' >
+            <Link key={index} to={`/${playlist.id}`}>
+              <div className='px-2 py-2 rounded-md cursor-pointer flex  hover:bg-gray-800' >
                 <div className='mr-4'>
                   <img
                     className='text-xs h-[55px] w-[55px] rounded-lg'

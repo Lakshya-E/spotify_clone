@@ -44,11 +44,11 @@ const HomeHero = () => {
             </div>
             {/* Playlists */}
             <div className='grid grid-rows-2 grid-flow-col gap-4 my-8'>
-                {playlists?.slice(1, 7).map(playlist => {
+                {playlists?.slice(1, 7).map((playlist, index) => {
                     return (
-                        <Link to={`/${playlist.id}`}>
+                        <Link key={index} to={`/${playlist.id}`}>
                             <PlaylistCard
-                                key={playlist.id}
+                                
                                 image={playlist.images[0]?.url}
                                 name={playlist.name.slice(0, 31)}
                             />

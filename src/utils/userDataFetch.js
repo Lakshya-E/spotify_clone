@@ -114,15 +114,34 @@ export const getCurrentlyPlayingSong = async(token) => {
         }
     })
 
-    // console.log(response);
+    
+    //     throw new Error(error);
+    const responseData =  response.body.getReader();
+    // console.log('reader', data.read())
+    responseData.read().then(value => {
+        // if(value.done) 
+        //     return null;
+        // else {
+        //     console.log(JSON.parse(new TextDecoder().decode(value.value)))
+        //     return JSON.parse(new TextDecoder().decode(value.value))
+        // }
+        if(value.done) {
+            // console.log(value)
+            // console.log("no Data")
+            return null;
+        }
+        else{
+            // console.log(value);   
+            // console.log("data");
+            // const data = JSON.parse(new TextDecoder().decode(value.value))
+            // // console.log(data);
+            // return data;
+            console.log('from fn', JSON.parse(new TextDecoder().decode(value.value)));
+            return JSON.parse(new TextDecoder().decode(value.value))
+        }
+    })
+    // console.log(response.headers.get('content-length'))
+    // const responesData = await     // console.log(responesData)
 
-    try{
-        const responseData = response.json();
-        return responseData;
-    }
-    catch(error)
-    {
-        throw error;
-    }
 
 }

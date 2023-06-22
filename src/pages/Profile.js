@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate, redirect } from 'react-router-dom';
 
 import Navigation from '../components/Main/Navigation';
 import Hero from '../components/Main/Hero';
+import { tokenSliceActions } from '../store/token-slice';
 
 import { getTopArtist, getTopTracks, getUserPlaylist, getArtistsName, getFollowings } from '../utils/userDataFetch';
 import Card from '../components/UI/Card';
@@ -13,6 +15,8 @@ const Profile = () => {
 
   const userData = useSelector(state => state.user.user);
   const token = useSelector(state => state.token.token);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [topArtist, setTopArtist] = useState();
   const [playlists, setPlaylists] = useState();
@@ -46,10 +50,17 @@ const Profile = () => {
   }
 
 
+  const LogoutHandler = () => {
+    navigate('/login', {replace: true})
+    dispatch(tokenSliceActions.setToken(null));
+  }
+
+
   return (
-    <div>
+    <div className='relative'>
       <Navigation />
       <Hero data={{ ...profileData }} />
+      <button className='bg-[#1ED760] absolute right-16 top-[300px] px-2 py-1 font-bold rounded-lg text-lg' onClick={LogoutHandler}>Logout</button>
       <CardWrapper title={'Top Artists this month'} titleDesc={'only visible to you'} >
         {topArtist?.slice(0, 6).map(artist => {
           return (

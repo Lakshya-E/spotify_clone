@@ -29,7 +29,7 @@ const CurrentSong = () => {
     }, [])
 
     // DEBUGGER
-    // console.log('from current song', currentSong);
+    // console.log('from current song', currentSong);           
 
     return (
         <div className='flex items-center'>

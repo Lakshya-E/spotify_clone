@@ -1,5 +1,5 @@
-import React from 'react'
-import { redirect } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { redirect, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import Aside from '../components/Aside/Aside'
@@ -11,6 +11,12 @@ import Root from './Root'
 const Home = () => {
 
     const token = useSelector(state => state.token?.token);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate('/', {replace: true})
+    }, [])
 
     if(!token) {
         redirect("/login")

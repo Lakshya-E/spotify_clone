@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, useNavigate} from 'react-router-dom';
 import { Children, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -18,6 +18,8 @@ import { getCurrentlyPlayingSong } from './utils/userDataFetch';
 function App() {
 
   const [ _token, setToken ] = useState();
+
+  const tokenState = useSelector(state => state.token.token);
 
   const dispatch = useDispatch();
 
@@ -42,6 +44,7 @@ function App() {
     if(token != null){
       dispatch(tokenSliceActions.setToken(token));
       getUserData(token);
+      window.location.hash = ''
     }
 
     
@@ -50,7 +53,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: _token ? <Root /> : <Login />,
+      element: tokenState ? <Root /> : <Login />,
       children: [
         {path: '/', element: <Home />},
         {path: '/profile', element: <Profile />},

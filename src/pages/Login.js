@@ -13,7 +13,7 @@ const Login = () => {
                 <a
                     className='mx-auto max-w-[400px] px-6 py-2 font-bold border border-[#1DB954] bg-[#1DB954] rounded-3xl'
                     href={authRedirectLink}
-                >SIGN IN WITH SPOTIFY</a>
+                >SIGN to SPOTIFY</a>
             </div>
         </div>
     )

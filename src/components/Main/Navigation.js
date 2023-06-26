@@ -34,7 +34,7 @@ const Navigation = () => {
       </div>
       <Link to={'/profile'}>
         <div className='flex mr-4 cursor-pointer'>
-          <p className='border bg-white text-black font-medium rounded-2xl px-2 py-[1px] mr-4'>Explore Premium</p>
+          <p className='border bg-white text-black font-medium rounded-2xl px-2 py-[1px] mr-4'>See Premium</p>
           <div className='flex'>
             {userAvatar && <img className='rounded-full h-[30px] w-[30px]' src={userAvatar} />}
             {!userAvatar && <PersonIcon className='w-[50px] h-[20px]' />}

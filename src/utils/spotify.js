@@ -1,4 +1,5 @@
-const CLIENT_ID = '88bd9043147741eabe7cc5e5802e67fb';
+// const CLIENT_ID = '88bd9043147741eabe7cc5e5802e67fb';
+const CLIENT_ID = 'c8475ab9d2834033927a9a322bd4b396'
 const redirect_uri = 'http://localhost:3000/'
 const entryPoint = 'https://accounts.spotify.com/authorize'
 

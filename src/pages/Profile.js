@@ -42,7 +42,7 @@ const Profile = () => {
   const profileData = {
     title: 'Profile',
     user: userData?.display_name,
-    image: userData?.images[0].url,
+    image: userData?.images[0]?.url,
     followers: userData?.followers.total,
     following: followings?.total,
     playlists: playlists?.length,

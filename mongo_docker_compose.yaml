@@ -1,0 +1,6 @@
+version: latest
+services:
+ node:
+  image: 
+  ports:
+  - 3000:3000
